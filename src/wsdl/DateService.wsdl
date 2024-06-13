@@ -1,0 +1,39 @@
+<definitions name="DateService"
+  targetNamespace="http://www.examples.com/wsdl/DateService.wsdl"
+  xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://www.examples.com/wsdl/DateService.wsdl"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <message name="GetCurrentDateRequest"/>
+
+  <message name="GetCurrentDateResponse">
+    <part name="currentDate" type="xsd:string"/>
+  </message>
+
+  <portType name="DatePortType">
+    <operation name="getCurrentDate">
+      <input message="tns:GetCurrentDateRequest"/>
+      <output message="tns:GetCurrentDateResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="DateBinding" type="tns:DatePortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getCurrentDate">
+      <soap:operation soapAction="getCurrentDate"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="DateService">
+    <port name="DatePort" binding="tns:DateBinding">
+      <soap:address location="http://localhost:8000/date"/>
+    </port>
+  </service>
+</definitions>

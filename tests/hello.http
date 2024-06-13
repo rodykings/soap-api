@@ -1,0 +1,11 @@
+POST http://localhost:8000/hello HTTP/1.1
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://www.examples.com/wsdl/HelloService.wsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tns:sayHello>
+         <name>Rodrigo Reis</name>
+      </tns:sayHello>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,10 @@
+POST http://localhost:8000/date
+Content-Type: text/xml
+SOAPAction: "getCurrentDate"
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://www.examples.com/wsdl/DateService.wsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:getCurrentDate/>
+   </soapenv:Body>
+</soapenv:Envelope>
